@@ -23,12 +23,15 @@ function add_hover_effect(e) {
 
 function reset() {
     current_size = prompt('Enter size of new grid.');
-    const gridDiv = document.querySelector('.grid');
-    while (gridDiv.firstChild) {
-        gridDiv.removeChild(gridDiv.firstChild);
+    console.log(typeof current_size)
+    if (current_size != null && /^\d+$/.test(current_size)) {
+        const gridDiv = document.querySelector('.grid');
+        while (gridDiv.firstChild) {
+            gridDiv.removeChild(gridDiv.firstChild);
+        }
+        add_grid(current_size);
+        sketch();
     }
-    add_grid(current_size);
-    sketch();
 }
 
 function erase() {
