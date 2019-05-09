@@ -14,14 +14,17 @@ function add_grid() {
 
         gridDiv.appendChild(col)
     }
+}
 
+function add_hover_effect(e) {
+    e.target.setAttribute('class', e.target.getAttribute('class')+' mouseOver')
 }
 
 add_grid()
 
-const buttons = document.querySelectorAll('.button')
-buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        playRound(e.target.id, computerPlay())
+const squares = document.querySelectorAll('.square')
+squares.forEach((square) => {
+    square.addEventListener('mouseover', (e) => {
+        add_hover_effect(e)
     });
 });
