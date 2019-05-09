@@ -22,12 +22,22 @@ function add_hover_effect(e) {
 }
 
 function add_hover_effect_rgb(e){
-    console.log(e.target.style.backgroundColor)
     if(e.target.style.backgroundColor == ''){
         red = Math.floor(Math.random()*255);
         green = Math.floor(Math.random()*255);
         blue = Math.floor(Math.random()*255);
         e.target.style.backgroundColor = 'rgb('+red+','+green+','+blue+')';
+    }
+}
+
+function change_hover_effect(e){
+    console.log(e.target.value)
+    if(e.target.value = 'baw'){
+        console.log('here1')
+        current_hover_effect = add_hover_effect
+    } else if (e.target.value = 'random'){
+        console.log('here2')
+        current_hover_effect = add_hover_effect_rgb
     }
 }
 
@@ -56,11 +66,12 @@ function sketch() {
     const squares = document.querySelectorAll('.square')
     squares.forEach((square) => {
         square.addEventListener('mouseover', (e) => {
-            add_hover_effect_rgb(e)
+            current_hover_effect(e)
         });
     });
 }
 
+current_hover_effect = add_hover_effect
 current_size = 16;
 add_grid(current_size);
 sketch();
@@ -69,5 +80,8 @@ document.querySelector('#reset').addEventListener('click', (e) => {
 });
 document.querySelector('#erase').addEventListener('click', (e) => {
     erase()
+});
+document.querySelector('select').addEventListener('change', (e) => {
+    change_hover_effect(e)
 });
 
