@@ -21,28 +21,36 @@ function add_hover_effect(e) {
     e.target.setAttribute('class', e.target.getAttribute('class') + ' mouseOver')
 }
 
-function add_hover_effect_rgb(e){
-    if(e.target.style.backgroundColor == ''){
-        red = Math.floor(Math.random()*255);
-        green = Math.floor(Math.random()*255);
-        blue = Math.floor(Math.random()*255);
-        e.target.style.backgroundColor = 'rgb('+red+','+green+','+blue+')';
+function add_hover_effect_rgb(e) {
+    red = Math.floor(Math.random() * 255);
+    green = Math.floor(Math.random() * 255);
+    blue = Math.floor(Math.random() * 255);
+    e.target.style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+}
+
+function add_hover_effect_darken(e) {
+    if (e.target.style.filter == '') {
+        e.target.style.filter = 'brightness(90%)';
+    } else if (e.target.style.filter != 'brightness(0%)') {
+        current_brightness = e.target.style.filter.slice(-4, -2);
+        current_brightness -= 10;
+        e.target.style.filter = 'brightness(' + current_brightness + '%)';
     }
 }
 
-function change_hover_effect(e){
-    console.log(e.target.value)
-    if(e.target.value = 'baw'){
-        console.log('here1')
-        current_hover_effect = add_hover_effect
-    } else if (e.target.value = 'random'){
-        console.log('here2')
-        current_hover_effect = add_hover_effect_rgb
+function change_hover_effect(e) {
+    if (e.target.value == 'baw') {
+        current_hover_effect = add_hover_effect;
+    } else if (e.target.value == 'random') {
+        current_hover_effect = add_hover_effect_rgb;
+    } else if (e.target.value == 'darken') {
+        current_hover_effect = add_hover_effect_darken;
     }
+    erase();
 }
 
 function reset() {
-    current_size = prompt('Enter size of new grid.',current_size);
+    current_size = prompt('Enter size of new grid.', current_size);
     if (current_size != null && /^\d+$/.test(current_size)) {
         const gridDiv = document.querySelector('.grid');
         while (gridDiv.firstChild) {
@@ -71,7 +79,7 @@ function sketch() {
     });
 }
 
-current_hover_effect = add_hover_effect
+current_hover_effect = add_hover_effect_darken
 current_size = 16;
 add_grid(current_size);
 sketch();
