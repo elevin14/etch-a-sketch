@@ -15,37 +15,40 @@ html, body {
     flex: 1;
 }
 
+.gridContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .grid {
     display: flex;
-    flex: 1 100%;
-    min-height: 30vh;
-    max-height: 60vh;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: stretch;
     border: 2px solid black;
+    height: 80vw;
+    width: 80vw;
 }
 
 @media all and (max-width: 600px) {
-    .buttons {
-        flex-flow: column wrap;
-        align-items: center;
-    }
+    
+}
+
+.column{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .square {
-    margin: 2px;
-    font-size: 1.5rem;
-    padding: .5rem .5rem;
-    width: 10px;
-    height: 10px;
-    text-align: center;
-    background: rgba(0, 0, 0, 1);
+    margin: 1px;
+    flex-grow: 1;
+    background: white;
     cursor: pointer;
     user-select: none;
 }
 
 .mouseOver {
-    background: white;
+    background: black;
 }
 
 .fivepercentheight {

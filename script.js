@@ -3,7 +3,8 @@ function add_grid() {
 
     for (let j = 0; j < 16; j++) {
 
-        const col = document.createElement('div')
+        const col = document.createElement('div');
+        col.setAttribute('class', 'column');
 
         for (let i = 0; i < 16; i++) {
 
