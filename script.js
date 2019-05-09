@@ -21,9 +21,18 @@ function add_hover_effect(e) {
     e.target.setAttribute('class', e.target.getAttribute('class') + ' mouseOver')
 }
 
+function add_hover_effect_rgb(e){
+    console.log(e.target.style.backgroundColor)
+    if(e.target.style.backgroundColor == ''){
+        red = Math.floor(Math.random()*255);
+        green = Math.floor(Math.random()*255);
+        blue = Math.floor(Math.random()*255);
+        e.target.style.backgroundColor = 'rgb('+red+','+green+','+blue+')';
+    }
+}
+
 function reset() {
-    current_size = prompt('Enter size of new grid.');
-    console.log(typeof current_size)
+    current_size = prompt('Enter size of new grid.',current_size);
     if (current_size != null && /^\d+$/.test(current_size)) {
         const gridDiv = document.querySelector('.grid');
         while (gridDiv.firstChild) {
@@ -47,7 +56,7 @@ function sketch() {
     const squares = document.querySelectorAll('.square')
     squares.forEach((square) => {
         square.addEventListener('mouseover', (e) => {
-            add_hover_effect(e)
+            add_hover_effect_rgb(e)
         });
     });
 }
