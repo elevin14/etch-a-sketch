@@ -15,11 +15,11 @@ html, body {
     flex: 1;
 }
 
-.buttons {
+.grid {
     display: flex;
     flex: 1 100%;
     min-height: 30vh;
-    max-height: 50vh;
+    max-height: 60vh;
     align-items: flex-start;
     justify-content: center;
 }
@@ -31,14 +31,14 @@ html, body {
     }
 }
 
-.button {
-    border: .25rem solid black;
-    margin: 1rem;
+.square {
+    margin: 2px;
     font-size: 1.5rem;
-    padding: 1rem .5rem;
-    width: 8rem;
+    padding: .5rem .5rem;
+    width: 10px;
+    height: 10px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 1);
     cursor: pointer;
     user-select: none;
 }
