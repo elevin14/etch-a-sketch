@@ -1,12 +1,12 @@
-function add_grid() {
+function add_grid(n) {
     const gridDiv = document.querySelector('.grid');
 
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < n; j++) {
 
         const col = document.createElement('div');
         col.setAttribute('class', 'column');
 
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < n; i++) {
 
             const box = document.createElement('div');
             box.setAttribute('class', 'square');
@@ -18,14 +18,44 @@ function add_grid() {
 }
 
 function add_hover_effect(e) {
-    e.target.setAttribute('class', e.target.getAttribute('class')+' mouseOver')
+    e.target.setAttribute('class', e.target.getAttribute('class') + ' mouseOver')
 }
 
-add_grid()
+function reset() {
+    current_size = prompt('Enter size of new grid.');
+    const gridDiv = document.querySelector('.grid');
+    while (gridDiv.firstChild) {
+        gridDiv.removeChild(gridDiv.firstChild);
+    }
+    add_grid(current_size);
+    sketch();
+}
 
-const squares = document.querySelectorAll('.square')
-squares.forEach((square) => {
-    square.addEventListener('mouseover', (e) => {
-        add_hover_effect(e)
+function erase() {
+    const gridDiv = document.querySelector('.grid');
+    while (gridDiv.firstChild) {
+        gridDiv.removeChild(gridDiv.firstChild);
+    }
+    add_grid(current_size);
+    sketch();
+}
+
+function sketch() {
+    const squares = document.querySelectorAll('.square')
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', (e) => {
+            add_hover_effect(e)
+        });
     });
+}
+
+current_size = 16;
+add_grid(current_size);
+sketch();
+document.querySelector('#reset').addEventListener('click', (e) => {
+    reset()
 });
+document.querySelector('#erase').addEventListener('click', (e) => {
+    erase()
+});
+

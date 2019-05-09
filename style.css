@@ -67,3 +67,7 @@ html, body {
 h1 {
     font-size: 2rem;
 }
+
+button {
+    margin-left: 5px;
+}
