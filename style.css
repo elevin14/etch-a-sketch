@@ -52,7 +52,10 @@ html, body {
 }
 
 .fivepercentheight {
-    max-height: 5vh;
+    display: flex;
+    max-height: 8vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .twentypercentheight {
