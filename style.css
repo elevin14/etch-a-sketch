@@ -6,7 +6,7 @@ html, body {
 .page {
     display: flex;
     flex-flow: column;
-    text-align: center;
+    align-items: stretch;
     font-family: sans-serif;
     height: 100%;
 }
@@ -15,28 +15,50 @@ html, body {
     flex: 1;
 }
 
+.header {
+    display: flex;
+    max-height: 8vh;
+    align-items: center;
+    justify-content: center;
+    flex-grow: .5;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.option {
+    margin: 3px;
+}
+
+.footer {
+    width: 100%;
+    overflow: auto;
+}
+
 .gridContainer {
     display: flex;
     justify-content: center;
+    flex-grow: 8;
+    align-items: flex-start;
 }
 
 .grid {
     display: flex;
-    align-items: stretch;
     border: 2px solid black;
-    height: 80vw;
-    width: 80vw;
+    width: 80vmin;
+    height: 80vmin;
 }
 
-@media all and (max-width: 600px) {
-    
-}
-
-.column{
+.column {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    align-items: stretch;
+    height: 100%;
 }
 
 .square {
@@ -47,30 +69,6 @@ html, body {
     user-select: none;
 }
 
-.mouseOver {
-    background: black;
-}
-
-.fivepercentheight {
-    display: flex;
-    max-height: 8vh;
-    align-items: center;
-    justify-content: center;
-}
-
-.twentypercentheight {
-    max-height: 20vh;
-}
-
-.footer {
-    width: 100%;
-    overflow: auto;
-}
-
 h1 {
     font-size: 2rem;
-}
-
-button {
-    margin-left: 5px;
 }

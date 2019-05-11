@@ -10,20 +10,21 @@
 <body>
 
     <div class="page">
-        <header class="twentypercentheight">
+        <header class="header">
             <h1>Etch-a-sketch</h1>
-            <button id='reset'>Change size</button>
-            <button id='erase'>Erase</button>
         </header>
-        <div class="fivepercentheight" id="feedback">
+        <div class="buttons">
             <form>
-                <select>
+                <select class="option">
                     <option value="darken">Gradual darken</option>
                     <option value="baw">Black and white</option>
                     <option value="random">Random RGB</option>
                 </select>
             </form>
+            <button class="option" id='reset'>Change size</button>
+            <button class="option" id='erase'>Erase</button>
         </div>
+        <div></div>
         <div class="gridContainer">
             <div class="grid">
             </div>
