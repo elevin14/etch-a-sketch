@@ -17,8 +17,8 @@ function add_grid(n) {
     }
 }
 
-function add_hover_effect(e) {
-    e.target.setAttribute('class', e.target.getAttribute('class') + ' mouseOver')
+function add_hover_effect_black(e) {
+    e.target.style.backgroundColor = 'black';
 }
 
 function add_hover_effect_rgb(e) {
@@ -40,13 +40,12 @@ function add_hover_effect_darken(e) {
 
 function change_hover_effect(e) {
     if (e.target.value == 'baw') {
-        current_hover_effect = add_hover_effect;
+        current_hover_effect = add_hover_effect_black;
     } else if (e.target.value == 'random') {
         current_hover_effect = add_hover_effect_rgb;
     } else if (e.target.value == 'darken') {
         current_hover_effect = add_hover_effect_darken;
     }
-    erase();
 }
 
 function reset() {
